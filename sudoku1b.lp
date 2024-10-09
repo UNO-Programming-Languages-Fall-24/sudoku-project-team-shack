@@ -11,10 +11,11 @@ row(1..4).
 col(1..4).
 
 %define subgrids
-subgrid(X,Y,1) :- X<=2, Y<=2.
-subgrid(X,Y,2) :- X<=2, Y>2.
-subgrid(X,Y,3) :- X>2, Y<=2.
-subgrid(X,Y,4) :- X>2, Y>2.
+{subgrid(X,Y,G) : G=1..4} = 1 :- row(X), col(Y).
+:- subgrid(X,Y,G), X<=2, Y<=2, G!=1.
+:- subgrid(X,Y,G), X<=2, Y>2, G!=2.
+:- subgrid(X,Y,G), X>2, Y<=2, G!=3.
+:- subgrid(X,Y,G), X>2, Y>2, G!=4.
 
 %fill in givens
 sudoku(X,Y,N) :- initial(X,Y,N).
