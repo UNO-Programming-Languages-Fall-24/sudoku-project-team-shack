@@ -11,8 +11,8 @@ col(1..4).
 
 sudoku(X,Y,N) :- initial(X,Y,N).
 
-{sudoku(X,Y,N) : N=1..4} = 1 :- row(x), col(Y).
-:- sudoku(X,Y,N), Sudoku(X,Y2, N) , Y != Y2.
-:- sudoku(X,Y,N), Sudoku(X2,Y, N) , X != X2.
+{sudoku(X,Y,N) : N=1..4} = 1 :- row(X), col(Y).
+:- sudoku(X,Y,N), sudoku(X,Y2, N) , Y != Y2.
+:- sudoku(X,Y,N), sudoku(X2,Y, N) , X != X2.
 
 #show sudoku/3.
