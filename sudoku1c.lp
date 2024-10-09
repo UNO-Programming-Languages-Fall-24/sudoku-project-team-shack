@@ -28,6 +28,6 @@ sudoku(X,Y,N) :- initial(X,Y,N).
 :- sudoku(X,Y,N), sudoku(X',Y, N) , X != X'.
 
 %filter subgrid collisions
-:- sudoku(X,Y,N), subgrid(X,Y,G), sudoku(X',Y',N'), subgrid(X',Y', G), X!= X, Y' != Y, N = N'.
+:- sudoku(X,Y,N), subgrid(X,Y,G), sudoku(X',Y',N'), subgrid(X',Y', G'), X!= X, Y' != Y, N = N', G = G'.
 
 #show sudoku/3.
